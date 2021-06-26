@@ -1,4 +1,4 @@
-package maven;
+package com.ismt.controller;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,7 +15,7 @@ public class FrontEndController extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String path = request.getServletPath();
         System.out.println(path);
@@ -23,15 +23,16 @@ public class FrontEndController extends HttpServlet {
         if (request.getServletPath().equals("/ecommerce")) {
             HttpSession session =request.getSession();
             session.setAttribute("companyName", logoName);
-            response.sendRedirect("home.jsp");
+            response.sendRedirect("index.jsp");
         }
         else if(request.getServletPath().equals("/eg")){
 
-            HttpSession session =request.getSession();
-            session.setAttribute("companyName", logoName);
-            response.sendRedirect("eg.jsp");
-//            RequestDispatcher eg =request.getRequestDispatcher("/eg.jsp");
-//            eg.forward(request,response);
+//            HttpSession session =request.getSession();
+//            session.setAttribute("companyName", logoName);
+//            response.sendRedirect("eg.jsp");
+            request.setAttribute("company", "ISMT ECOMMERCE APPS");
+            RequestDispatcher eg =request.getRequestDispatcher("eg.jsp");
+            eg.forward(request,response);
         }
     }
 }
