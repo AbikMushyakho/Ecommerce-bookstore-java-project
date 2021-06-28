@@ -242,6 +242,7 @@ pageEncoding="ISO-8859-1" %>
 
 		</div>
 		<!-- End Breadcrumbs -->
+		<h1>Welcome  ${userInfo}</h1>
 		<div class="text-center mb-0" style="color:green;"><h1 class="text-uppercase ">${titleName}</h1></div>
 		<!-- Product Style -->
 		<section class="product-area shop-sidebar shop section">

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
-@WebServlet(urlPatterns = {"/ecommerce", "/checkout","/eg"})
+@WebServlet(urlPatterns = {"/ecommerce", "/checkout","/eg","/login"})
 public class FrontEndController extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -32,6 +32,10 @@ public class FrontEndController extends HttpServlet {
 //            response.sendRedirect("eg.jsp");
             request.setAttribute("company", "ISMT ECOMMERCE APPS");
             RequestDispatcher eg =request.getRequestDispatcher("eg.jsp");
+            eg.forward(request,response);
+        }
+        else if(request.getServletPath().equals("/login")){
+            RequestDispatcher eg =request.getRequestDispatcher("login.jsp");
             eg.forward(request,response);
         }
     }
